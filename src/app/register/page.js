@@ -1,0 +1,255 @@
+'use client';
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useApp } from '@/data/store';
+import EarthyBackground from '@/components/EarthyBackground';
+import './auth.css';
+
+export default function RegisterPage() {
+  const router = useRouter();
+  const { register } = useApp();
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
+    confirmPassword: ''
+  });
+  const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [navigating, setNavigating] = useState(false);
+
+  const handleChange = (field, value) => {
+    setForm(prev => ({ ...prev, [field]: value }));
+    if (errors[field]) setErrors(prev => ({ ...prev, [field]: '' }));
+  };
+
+  const validate = () => {
+    const errs = {};
+    if (!form.name.trim()) errs.name = 'Name is required';
+    if (!form.email.trim()) errs.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(form.email)) errs.email = 'Enter a valid email';
+    if (!form.phone.trim()) errs.phone = 'Phone number is required';
+    else if (!/^[6-9]\d{9}$/.test(form.phone)) errs.phone = 'Enter a valid 10-digit Indian mobile number';
+    if (!form.password) errs.password = 'Password is required';
+    else if (form.password.length < 6) errs.password = 'Minimum 6 characters';
+    if (form.password !== form.confirmPassword) errs.confirmPassword = 'Passwords do not match';
+    setErrors(errs);
+    return Object.keys(errs).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+    
+    setLoading(true);
+    // Simulate network delay
+    await new Promise(r => setTimeout(r, 800));
+    
+    register({
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      password: form.password
+    });
+    
+    setNavigating(true);
+    await new Promise(r => setTimeout(r, 1800));
+    router.push('/add-child');
+  };
+
+  return (
+    <div className="auth-page">
+      {/* Premium canvas fluid waves background */}
+      <EarthyBackground />
+
+      <div className="auth-container animate-fade-in-up">
+        <div className="auth-header">
+          <button className="auth-back" onClick={() => router.push('/')} id="register-back">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <path d="M15 10H5M5 10l4-4M5 10l4 4"/>
+            </svg>
+          </button>
+          <div>
+            <h1 className="auth-title">Create Account</h1>
+            <p className="auth-subtitle">Join FirstYears to protect your child&apos;s health</p>
+          </div>
+        </div>
+
+        <form onSubmit={handleSubmit} className="auth-form" id="register-form">
+          <div className="input-group">
+            <label className="input-label" htmlFor="reg-name">Full Name</label>
+            <input
+              id="reg-name"
+              className={`input-field ${errors.name ? 'input-error' : ''}`}
+              type="text"
+              placeholder="Enter your full name"
+              value={form.name}
+              onChange={e => handleChange('name', e.target.value)}
+            />
+            {errors.name && <span className="field-error">{errors.name}</span>}
+          </div>
+
+          <div className="input-group">
+            <label className="input-label" htmlFor="reg-email">Email Address</label>
+            <input
+              id="reg-email"
+              className={`input-field ${errors.email ? 'input-error' : ''}`}
+              type="email"
+              placeholder="you@example.com"
+              value={form.email}
+              onChange={e => handleChange('email', e.target.value)}
+            />
+            {errors.email && <span className="field-error">{errors.email}</span>}
+          </div>
+
+          <div className="input-group">
+            <label className="input-label" htmlFor="reg-phone">Phone Number</label>
+            <input
+              id="reg-phone"
+              className={`input-field ${errors.phone ? 'input-error' : ''}`}
+              type="tel"
+              placeholder="10-digit mobile number"
+              value={form.phone}
+              onChange={e => handleChange('phone', e.target.value)}
+              maxLength={10}
+            />
+            {errors.phone && <span className="field-error">{errors.phone}</span>}
+          </div>
+
+          <div className="input-group">
+            <label className="input-label" htmlFor="reg-password">Password</label>
+            <div className="password-input-wrapper">
+              <input
+                id="reg-password"
+                className={`input-field ${errors.password ? 'input-error' : ''}`}
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Minimum 6 characters"
+                value={form.password}
+                onChange={e => handleChange('password', e.target.value)}
+              />
+              <button
+                type="button"
+                className={`password-toggle-btn ${showPassword ? 'visible' : ''}`}
+                onClick={() => setShowPassword(prev => !prev)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                id="reg-password-toggle"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  className="eye-icon"
+                >
+                  <g className="eye-open-g">
+                    <path className="eye-outline" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle className="eye-pupil" cx="12" cy="12" r="3" fill="currentColor" />
+                  </g>
+                  <g className="eye-closed-g">
+                    <path className="eye-lid" d="M2 11c3 4 7 6 10 6s7-2 10-6" />
+                    <path className="eye-lashes" d="M12 17v3.5M5 14L3 17M19 14l2 3M8.2 16L6.5 19M15.8 16l1.7 3" />
+                  </g>
+                </svg>
+              </button>
+            </div>
+            {errors.password && <span className="field-error">{errors.password}</span>}
+          </div>
+
+          <div className="input-group">
+            <label className="input-label" htmlFor="reg-confirm">Confirm Password</label>
+            <div className="password-input-wrapper">
+              <input
+                id="reg-confirm"
+                className={`input-field ${errors.confirmPassword ? 'input-error' : ''}`}
+                type={showConfirmPassword ? 'text' : 'password'}
+                placeholder="Re-enter password"
+                value={form.confirmPassword}
+                onChange={e => handleChange('confirmPassword', e.target.value)}
+              />
+              <button
+                type="button"
+                className={`password-toggle-btn ${showConfirmPassword ? 'visible' : ''}`}
+                onClick={() => setShowConfirmPassword(prev => !prev)}
+                aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+                id="reg-confirm-toggle"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  className="eye-icon"
+                >
+                  <g className="eye-open-g">
+                    <path className="eye-outline" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle className="eye-pupil" cx="12" cy="12" r="3" fill="currentColor" />
+                  </g>
+                  <g className="eye-closed-g">
+                    <path className="eye-lid" d="M2 11c3 4 7 6 10 6s7-2 10-6" />
+                    <path className="eye-lashes" d="M12 17v3.5M5 14L3 17M19 14l2 3M8.2 16L6.5 19M15.8 16l1.7 3" />
+                  </g>
+                </svg>
+              </button>
+            </div>
+            {errors.confirmPassword && <span className="field-error">{errors.confirmPassword}</span>}
+          </div>
+
+          <button
+            type="submit"
+            className="btn btn-primary btn-lg btn-full"
+            disabled={loading}
+            id="register-submit"
+          >
+            {loading ? (
+              <span className="btn-loading">
+                <span className="spinner" />
+                Creating Account...
+              </span>
+            ) : 'Create Account'}
+          </button>
+        </form>
+
+        <p className="auth-footer-text">
+          Already have an account?{' '}
+          <button onClick={() => router.push('/login')} className="auth-link" id="register-to-login">
+            Log In
+          </button>
+        </p>
+      </div>
+
+      {/* Premium Loading Transition Overlay */}
+      {navigating && (
+        <div className="premium-loader-overlay">
+          <div className="premium-loader-content">
+            <div className="premium-loader-spinner">
+              <div className="loader-ring loader-ring-1" />
+              <div className="loader-ring loader-ring-2" />
+              <div className="loader-ring loader-ring-3" />
+              <div className="loader-logo">
+                <svg width="44" height="44" viewBox="0 0 56 56" fill="none">
+                  <defs>
+                    <linearGradient id="loaderGradReg" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#FFB385"/>
+                      <stop offset="50%" stopColor="#FFD2B8"/>
+                      <stop offset="100%" stopColor="#D2EBFC"/>
+                    </linearGradient>
+                  </defs>
+                  <circle cx="28" cy="28" r="26" stroke="url(#loaderGradReg)" strokeWidth="4.5" fill="none"/>
+                  <path d="M20 32C20 32 22 36 28 36C34 36 36 32 36 32" stroke="url(#loaderGradReg)" strokeWidth="2.5" strokeLinecap="round"/>
+                  <circle cx="22" cy="24" r="2" fill="#FFB385"/>
+                  <circle cx="34" cy="24" r="2" fill="#8AC8F5"/>
+                </svg>
+              </div>
+            </div>
+            <div className="premium-loader-text">
+              <h2 className="loader-title">Account Created!</h2>
+              <p className="loader-subtitle">Setting up your child's profile...</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

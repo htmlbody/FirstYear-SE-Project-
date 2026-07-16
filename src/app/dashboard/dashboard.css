@@ -1,0 +1,519 @@
+.dash-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.dash-greeting {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.dash-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.dash-notif-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all var(--duration-fast) var(--ease-out);
+  box-shadow: var(--shadow-sm);
+}
+
+.dash-notif-btn:hover {
+  border-color: var(--border-medium);
+  background: var(--bg-secondary);
+}
+
+.notif-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--status-overdue);
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg-card);
+}
+
+/* Child Switcher Component */
+.child-switcher {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  overflow-x: auto;
+  padding-bottom: var(--space-2);
+  scrollbar-width: none; /* Firefox */
+}
+
+.child-switcher::-webkit-scrollbar {
+  display: none; /* Safari/Chrome */
+}
+
+.child-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.child-chip:hover {
+  border-color: var(--border-medium);
+  color: var(--text-primary);
+}
+
+.child-chip-active {
+  background: var(--gradient-primary);
+  color: var(--text-on-primary) !important;
+  border-color: transparent !important;
+  box-shadow: var(--shadow-md);
+}
+
+.child-chip-emoji {
+  font-size: 16px;
+}
+
+.child-chip-add {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 50%;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+/* Child Detailed Box - Dashboard Card */
+.dash-child-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  background: var(--gradient-soft);
+}
+
+.dash-child-avatar {
+  font-size: 40px;
+  width: 72px;
+  height: 72px;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.dash-child-info {
+  flex: 1;
+}
+
+.dash-child-name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.dash-child-age {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.dash-child-meta {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.dash-meta-tag {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Progress Section */
+.dash-progress-card {
+  margin-bottom: var(--space-6);
+}
+
+.dash-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+}
+
+.dash-progress-title {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.dash-progress-count {
+  font-size: var(--text-sm);
+  font-weight: 800;
+  color: var(--text-accent);
+}
+
+.dash-progress-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.dash-progress-bar {
+  flex: 1;
+  height: 12px;
+  background: var(--primary-100);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.dash-progress-fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  transition: width 0.8s var(--ease-out);
+  animation: progressFill 1s var(--ease-out);
+}
+
+.dash-progress-percent {
+  font-size: var(--text-sm);
+  font-weight: 800;
+  color: var(--text-primary);
+  min-width: 36px;
+  text-align: right;
+}
+
+.dash-progress-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-2);
+  border-top: 1px solid var(--border-light);
+  padding-top: var(--space-4);
+}
+
+.dash-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.dash-stat-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-bottom: var(--space-1);
+}
+
+.dash-stat-dot.completed { background: var(--status-completed); }
+.dash-stat-dot.upcoming { background: var(--status-upcoming); }
+.dash-stat-dot.overdue { background: var(--status-overdue); }
+
+.dash-stat-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.dash-stat-value {
+  font-size: var(--text-base);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* Next Vaccine Box */
+.dash-next-card {
+  background: var(--gradient-card);
+  margin-bottom: var(--space-6);
+  border-left: 4px solid var(--text-accent);
+}
+
+.dash-next-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-accent);
+  background: var(--primary-50);
+  padding: 4px var(--space-2);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-3);
+}
+
+.dash-next-name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.dash-next-fullname {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+}
+
+.dash-next-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: var(--space-3);
+  column-gap: var(--space-2);
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--border-light);
+}
+
+.dash-next-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-next-detail-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+
+.dash-next-detail-value {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.dash-next-disease {
+  grid-column: span 2;
+  font-size: var(--text-xs);
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.text-overdue {
+  color: var(--status-overdue);
+}
+
+/* Overdue Warning alert */
+.dash-alert {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-6);
+}
+
+.dash-alert-overdue {
+  background: var(--status-overdue-bg);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.dash-alert-icon {
+  font-size: 20px;
+}
+
+.dash-alert-content {
+  flex: 1;
+}
+
+.dash-alert-content h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--status-overdue);
+}
+
+.dash-alert-content p {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+/* Sections */
+.dash-section {
+  margin-bottom: var(--space-8);
+}
+
+.dash-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.dash-see-all {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-accent);
+}
+
+/* Upcoming items */
+.dash-upcoming-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.dash-upcoming-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  text-align: left;
+  width: 100%;
+}
+
+.dash-upcoming-item:active {
+  transform: translateY(1px);
+}
+
+.dash-upcoming-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.dash-upcoming-name {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: var(--space-1);
+}
+
+.dash-upcoming-info {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.dash-upcoming-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dash-upcoming-date {
+  font-size: var(--text-sm);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* Quick Actions component */
+.dash-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+}
+
+.dash-quick-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-1);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.dash-quick-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-medium);
+}
+
+.dash-quick-btn:active {
+  transform: translateY(0);
+}
+
+.dash-quick-icon {
+  font-size: 24px;
+  margin-bottom: var(--space-2);
+}
+
+.dash-quick-btn span:last-child {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Responsive Grid Dynamic Layout for Desktop */
+.dash-layout-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-column-main,
+.dash-column-side {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Wide screen layouts */
+@media (min-width: 900px) {
+  .dash-layout-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 32px;
+    align-items: start;
+    margin-bottom: var(--space-8);
+  }
+
+  .dash-column-main,
+  .dash-column-side {
+    gap: 0; /* Let existing margins handle space or override container gaps */
+  }
+
+  /* Make switcher scroll horizontal and take full line width if needed */
+  .child-switcher {
+    margin-bottom: var(--space-6);
+  }
+}
+

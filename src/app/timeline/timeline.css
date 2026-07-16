@@ -1,0 +1,294 @@
+.timeline-header {
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.timeline-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.timeline-bio-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: var(--bg-card);
+  margin-bottom: var(--space-8);
+  border-style: solid;
+}
+
+.bio-avatar {
+  font-size: 32px;
+  width: 56px;
+  height: 56px;
+  background: var(--primary-50);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.bio-details h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.bio-details p {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+/* Timeline vertical layout */
+.timeline-container {
+  position: relative;
+  padding-left: 36px;
+}
+
+.timeline-node {
+  position: relative;
+  margin-bottom: var(--space-6);
+}
+
+/* Vertical connector line style */
+.timeline-line {
+  position: absolute;
+  top: 40px;
+  left: -20px;
+  bottom: -40px;
+  width: 3px;
+  background: var(--border-light);
+  z-index: 1;
+  transition: background var(--duration-normal);
+}
+
+.timeline-line.line-completed { background: var(--status-completed); }
+.timeline-line.line-upcoming { background: var(--status-upcoming); }
+.timeline-line.line-overdue { background: var(--status-overdue); }
+
+/* Node Bullet Badge */
+.timeline-badge {
+  position: absolute;
+  left: -28px;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 3.5px solid var(--border-medium);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.badge-bullet {
+  font-size: 8px;
+  font-weight: 900;
+  color: var(--text-primary);
+  display: none;
+}
+
+/* Timeline panel card */
+.timeline-panel {
+  padding: 0;
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.panel-age {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.panel-summary {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.status-tag {
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.status-tag.status-completed {
+  background: var(--status-completed-bg);
+  color: var(--status-completed);
+}
+
+.status-tag.status-upcoming {
+  background: var(--status-upcoming-bg);
+  color: var(--status-upcoming);
+}
+
+.status-tag.status-overdue {
+  background: var(--status-overdue-bg);
+  color: var(--status-overdue);
+}
+
+.status-tag.status-future {
+  background: var(--status-future-bg);
+  color: var(--status-future);
+}
+
+/* Vaccine list body */
+.panel-body {
+  border-top: 1px solid var(--border-light);
+  background: var(--bg-secondary);
+  transition: max-height var(--duration-normal) var(--ease-out);
+  max-height: 500px;
+}
+
+.collapsed-node .panel-body {
+  max-height: 0;
+  border-top-color: transparent;
+  overflow: hidden;
+}
+
+.timeline-vaccines-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-vaccine-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: background var(--duration-fast);
+}
+
+.timeline-vaccine-item:hover {
+  background: var(--bg-card-hover);
+}
+
+.timeline-vaccine-item:last-child {
+  border-bottom: none;
+}
+
+.vaccine-item-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.item-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.item-dot.status-completed { background: var(--status-completed); }
+.item-dot.status-upcoming { background: var(--status-upcoming); }
+.item-dot.status-overdue { background: var(--status-overdue); }
+.item-dot.status-future { background: var(--status-future); }
+
+.item-name {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.item-target {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  font-weight: 600;
+}
+
+.vaccine-item-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.item-dose {
+  font-size: 10px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  background: var(--bg-card);
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+.item-status-pill {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.item-status-pill.status-completed { color: var(--status-completed); }
+.item-status-pill.status-upcoming { color: var(--status-upcoming); }
+.item-status-pill.status-overdue { color: var(--status-overdue); }
+.item-status-pill.status-future { color: var(--text-tertiary); }
+
+/* Node Color Customization override based on Status */
+.timeline-node.status-completed .timeline-badge {
+  border-color: var(--status-completed);
+  background: var(--status-completed);
+}
+
+.timeline-node.status-completed .timeline-badge .badge-bullet {
+  display: block;
+  color: white;
+}
+
+.timeline-node.status-upcoming .timeline-badge {
+  border-color: var(--status-upcoming);
+}
+.timeline-node.status-upcoming .timeline-badge .badge-bullet {
+  display: block;
+  color: var(--status-upcoming);
+}
+
+.timeline-node.status-overdue .timeline-badge {
+  border-color: var(--status-overdue);
+  background: var(--status-overdue-bg);
+}
+.timeline-node.status-overdue .timeline-badge .badge-bullet {
+  display: block;
+  color: var(--status-overdue);
+}
+
+.timeline-node.status-future .timeline-badge {
+  border-color: var(--border-medium);
+}
+
+/* Desktop responsive adjustments */
+@media (min-width: 768px) {
+  .timeline-container {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+}

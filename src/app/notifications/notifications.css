@@ -1,0 +1,299 @@
+.notif-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.notif-page-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.notif-page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Alerts section */
+.notif-alerts-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .notif-alerts-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--space-4);
+  }
+}
+
+.alert-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.alert-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.alert-item:active {
+  transform: translateY(0);
+}
+
+.alert-status-overdue {
+  border-left: 4px solid var(--status-overdue);
+  background: var(--status-overdue-bg);
+}
+
+.alert-status-upcoming {
+  border-left: 4px solid var(--status-upcoming);
+  background: var(--status-upcoming-bg);
+}
+
+.notif-icon {
+  font-size: 24px;
+}
+
+.alert-content {
+  flex: 1;
+}
+
+.alert-badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-2);
+}
+
+.alert-badge.overdue {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--status-overdue);
+}
+
+.alert-badge.upcoming {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--status-upcoming);
+}
+
+.alert-title {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.alert-text {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.notif-clean-state {
+  text-align: center;
+  padding: var(--space-10) var(--space-6);
+}
+
+.clean-icon {
+  font-size: 40px;
+  margin-bottom: var(--space-3);
+  display: inline-block;
+}
+
+.notif-clean-state h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.notif-clean-state p {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+/* Channels configuration cards */
+.notif-channels-card h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.notif-channels-card p {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.channels-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.channel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-fast);
+}
+
+.channel-row:hover {
+  background: var(--bg-card);
+  border-color: var(--border-medium);
+}
+
+.channel-info {
+  text-align: left;
+}
+
+.channel-info strong {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.channel-info p {
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin: 0;
+  margin-top: 1px;
+}
+
+/* ===== SIMULATION FLOATING SHEET ===== */
+.simulator-banner {
+  position: fixed;
+  bottom: 90px;
+  left: var(--space-4);
+  right: var(--space-4);
+  background: #111827; /* Dark spatial theme overlay */
+  color: white;
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  z-index: var(--z-modal);
+  border: 1.5px solid #374151;
+}
+
+.sim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+  border-bottom: 1px solid #374151;
+  padding-bottom: var(--space-2);
+}
+
+.sim-header span {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--primary-300);
+}
+
+.sim-dismiss {
+  color: #9ca3af;
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.sim-dismiss:hover {
+  color: white;
+}
+
+/* Simulated Smartphone Notification block */
+.sim-phone-screen {
+  background: #1f2937;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-3);
+  border: 1px solid #4b5563;
+  text-align: left;
+}
+
+.sim-app-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--primary-300);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+  letter-spacing: 0.02em;
+}
+
+.sim-msg-title {
+  font-size: var(--text-sm);
+  font-weight: 800;
+  color: white;
+  margin-bottom: var(--space-1);
+}
+
+.sim-msg-text {
+  font-size: var(--text-xs);
+  color: #d1d5db;
+  line-height: 1.4;
+}
+
+.sim-view-btn {
+  margin-top: var(--space-3);
+  width: 100%;
+  padding: var(--space-2);
+  background: #374151;
+  color: white;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  transition: background var(--duration-fast);
+}
+
+.sim-view-btn:hover {
+  background: #4b5563;
+}
+
+.sim-footer {
+  font-size: 9px;
+  color: #9ca3af;
+  text-align: center;
+}
+
+/* Colors based on simulation alert types */
+.sub-alert-overdue .sim-app-header {
+  color: #ef4444;
+}
+.sub-alert-upcoming .sim-app-header {
+  color: #f59e0b;
+}
+
+@media (min-width: 600px) {
+  .simulator-banner {
+    max-width: 480px;
+    left: auto;
+    right: var(--space-6);
+  }
+}

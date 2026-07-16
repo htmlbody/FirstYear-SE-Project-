@@ -1,0 +1,278 @@
+.splash-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FAF5F2;
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-6);
+}
+
+/* Content */
+.splash-content {
+  position: relative;
+  z-index: 2;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s var(--ease-out);
+}
+
+.splash-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Logo */
+.splash-logo-wrap {
+  margin-bottom: var(--space-10);
+}
+
+.splash-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 10px 30px rgba(143, 35, 24, 0.04);
+  margin-bottom: var(--space-5);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  animation: float 5s ease-in-out infinite;
+}
+
+.splash-title {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  color: #4A1E1A;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+}
+
+.splash-tagline {
+  font-size: var(--text-base);
+  color: #74221A;
+  font-weight: 600;
+}
+
+/* Features */
+.splash-features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+}
+
+.splash-feature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: left;
+  background: rgba(255, 255, 255, 0.72);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 4px 10px rgba(143, 35, 24, 0.02);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.splash-feature:hover {
+  box-shadow: 0 12px 25px rgba(143, 35, 24, 0.06);
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(143, 35, 24, 0.22);
+}
+
+.splash-feature-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFF9F5;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(143, 35, 24, 0.1);
+}
+
+.splash-feature h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 800;
+  color: #4A1E1A;
+  margin-bottom: 2px;
+}
+
+.splash-feature p {
+  font-size: var(--text-xs);
+  color: #74221A;
+  line-height: 1.4;
+}
+
+/* Actions */
+.splash-actions {
+  margin-bottom: var(--space-8);
+}
+
+.splash-cta {
+  background-color: #8F2318;
+  background-image: none;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(143, 35, 24, 0.3);
+  border: none;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.splash-cta:hover {
+  background-color: #741910;
+  box-shadow: 0 8px 24px rgba(143, 35, 24, 0.4);
+  transform: translateY(-2px);
+}
+
+.splash-cta:active {
+  transform: translateY(0);
+}
+
+.splash-login-link {
+  font-size: var(--text-sm);
+  color: #74221A;
+}
+
+.splash-link {
+  color: #8F2318;
+  font-weight: 700;
+  transition: opacity var(--duration-fast);
+}
+
+.splash-link:hover {
+  opacity: 0.8;
+  color: #BD5A4E;
+}
+
+/* Footer */
+.splash-footer {
+  font-size: var(--text-xs);
+  color: #A6827E;
+  font-weight: 600;
+}
+
+/* ===== PREMIUM IN-BUTTON LUXURY LOADER ===== */
+.splash-cta {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s;
+}
+
+.splash-cta.cta-loading {
+  background: linear-gradient(135deg, #1B0A08 0%, #4A1E1A 50%, #1B0A08 100%) !important;
+  background-size: 200% auto !important;
+  border: 1px solid rgba(255, 160, 110, 0.25) !important;
+  box-shadow: 
+    0 12px 30px rgba(74, 30, 26, 0.4), 
+    inset 0 0 15px rgba(255, 255, 255, 0.04) !important;
+  animation: ctaPulseGlow 3s ease-in-out infinite alternate, ctaShiftingGrad 4s linear infinite;
+  transform: scale(0.98);
+  pointer-events: none;
+}
+
+@keyframes ctaPulseGlow {
+  0% {
+    box-shadow: 0 8px 24px rgba(74, 30, 26, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.02);
+  }
+  100% {
+    box-shadow: 0 16px 36px rgba(189, 90, 78, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.08);
+  }
+}
+
+@keyframes ctaShiftingGrad {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.luxury-btn-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Beautiful custom progress spinner rotating */
+.luxury-btn-spinner {
+  animation: spin 1.2s linear infinite;
+  filter: drop-shadow(0 0 6px #FFA06E);
+  will-change: transform;
+}
+
+.spinner-track {
+  opacity: 0.25;
+}
+
+.spinner-fill {
+  animation: fillAnimation 1.6s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fillAnimation {
+  0%   { stroke-dashoffset: 60; }
+  100% { stroke-dashoffset: 10; }
+}
+
+/* Gold Shimmering Text in loader button */
+.luxury-btn-text {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #FFF2E8 0%, #FFA06E 40%, #FFF2E8 75%, #FFA06E 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldTextGlint 2.8s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes goldTextGlint {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Local progress bar at the bottom edge of the button */
+.btn-progress-line-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #A8281A 0%, #FFA06E 50%, #FFF2E8 100%);
+  width: 0%;
+  animation: btnProgressFill 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes btnProgressFill {
+  0%   { width: 0%; }
+  30%  { width: 35%; }
+  60%  { width: 70%; }
+  85%  { width: 92%; }
+  100% { width: 100%; }
+}
+
+/* ---- Splash Logo Float ---- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
