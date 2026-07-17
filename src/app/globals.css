@@ -26,86 +26,86 @@ input, textarea, select { font-family: inherit; }
 img { max-width: 100%; display: block; }
 ul, ol { list-style: none; }
 
-/* ===== THEME: DEFAULT (NEUTRAL / MAIN / GENDER FREE) ===== */
+/* ===== THEME: DEFAULT - WELLNESS TEAL (Modern Healthcare) ===== */
 :root, [data-theme="default"] {
-  /* Primary palette (Warm Terracotta & Chocolate) */
-  --primary-50: #FAF4F3;
-  --primary-100: #F6E6E4;
-  --primary-200: #EFC8C3;
-  --primary-300: #E2A197;
-  --primary-400: #BD5A4E; /* Dusty Rust Rose */
-  --primary-500: #8F2318; /* Rich Terracotta Red */
-  --primary-600: #741910;
-  --primary-700: #5C120B;
-  --primary-800: #4A0E07;
-  --primary-900: #330501;
+  /* Primary palette (Calming Teal & Mint) */
+  --primary-50: #E0F7F6;
+  --primary-100: #B3EAE8;
+  --primary-200: #80DCD6;
+  --primary-300: #4DCEC3;
+  --primary-400: #2AB8B0; /* Wellness Mint */
+  --primary-500: #1A9A94; /* Professional Teal */
+  --primary-600: #158078;
+  --primary-700: #0D6B66;
+  --primary-800: #084440;
+  --primary-900: #062A27;
 
-  /* Accent (Sunny Marigold / Amber) */
-  --accent-50: #FFF9F5;
-  --accent-100: #FEEFE6;
-  --accent-200: #FDD7BF;
-  --accent-300: #FCBA91;
-  --accent-400: #F99C62;
-  --accent-500: #E9884F; /* Marigold Amber */
-  --accent-600: #D0733C;
+  /* Accent (Warm Coral - Care & Compassion) */
+  --accent-50: #FEF3F0;
+  --accent-100: #FDE2D9;
+  --accent-200: #F9C4B0;
+  --accent-300: #F5A589;
+  --accent-400: #F0846E;
+  --accent-500: #E85D52; /* Warm Coral */
+  --accent-600: #D24740;
 
   /* Gradient */
-  --gradient-start: #BD5A4E;
-  --gradient-mid: #8F2318;
-  --gradient-end: #E9884F;
-  --gradient-primary: linear-gradient(135deg, #BD5A4E 0%, #8F2318 50%, #E9884F 100%);
-  --gradient-soft: linear-gradient(135deg, #FAF4F3 0%, #F6E6E4 50%, #FEEFE6 100%);
-  --gradient-card: linear-gradient(145deg, #ffffff 0%, #FAF6F4 100%);
-  --gradient-hero: linear-gradient(160deg, #FAF4F3 0%, #F6E6E4 30%, #FFFDF0 60%, #FEEFE6 100%);
+  --gradient-start: #0D6B66;
+  --gradient-mid: #2AB8B0;
+  --gradient-end: #1A9A94;
+  --gradient-primary: linear-gradient(135deg, #0D6B66 0%, #2AB8B0 50%, #1A9A94 100%);
+  --gradient-soft: linear-gradient(135deg, #E0F7F6 0%, #E8F8F5 50%, #D9F5F2 100%);
+  --gradient-card: linear-gradient(145deg, #ffffff 0%, #F0FFFE 100%);
+  --gradient-hero: linear-gradient(160deg, #E0F7F6 0%, #E8F8F5 30%, #D9F5F2 60%, #F0FFFE 100%);
 
   /* Status */
   --status-completed: #10B981;
   --status-completed-bg: #D1FAE5;
-  --status-upcoming: #E9884F;
-  --status-upcoming-bg: #FEEFE6;
-  --status-overdue: #8F2318;
-  --status-overdue-bg: #FAF4F3;
+  --status-upcoming: #E85D52;
+  --status-upcoming-bg: #FEF3F0;
+  --status-overdue: #DC2626;
+  --status-overdue-bg: #FEE2E2;
   --status-future: #94A3B8;
   --status-future-bg: #F1F5F9;
 
   /* Surfaces */
-  --bg-primary: #FAF5F2; /* Warm sand / luxury ivory */
-  --bg-secondary: #F6ECE8;
+  --bg-primary: #F7FFFE; /* Cool, clean ivory */
+  --bg-secondary: #E8F8F5;
   --bg-card: #FFFFFF;
-  --bg-card-hover: #FAF6F4;
-  --bg-input: #FAF6F4;
+  --bg-card-hover: #F0FFFE;
+  --bg-input: #F0FFFE;
   --bg-input-focus: #FFFFFF;
 
   /* Borders */
-  --border-light: #F2D5D0;
-  --border-medium: #EFC8C3;
-  --border-focus: #BD5A4E;
+  --border-light: #D9F5F2;
+  --border-medium: #B3EAE8;
+  --border-focus: #2AB8B0;
 
   /* Text */
-  --text-primary: #4A1E1A; /* Luxurious Chocolate Burgundy */
-  --text-secondary: #74221A;
-  --text-tertiary: #A6827E;
+  --text-primary: #1B4E4A; /* Deep Teal */
+  --text-secondary: #2A7A75;
+  --text-tertiary: #6B9E9A;
   --text-on-primary: #FFFFFF;
-  --text-accent: #8F2318;
+  --text-accent: #0D6B66;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(143, 35, 24, 0.05), 0 1px 2px rgba(143, 35, 24, 0.03);
-  --shadow-md: 0 4px 12px rgba(143, 35, 24, 0.07), 0 2px 4px rgba(143, 35, 24, 0.03);
-  --shadow-lg: 0 10px 30px rgba(143, 35, 24, 0.09), 0 4px 8px rgba(143, 35, 24, 0.04);
-  --shadow-xl: 0 20px 50px rgba(143, 35, 24, 0.11), 0 8px 16px rgba(143, 35, 24, 0.06);
-  --shadow-glow: 0 0 20px rgba(143, 35, 24, 0.13);
-  --shadow-button: 0 4px 14px rgba(143, 35, 24, 0.22);
+  --shadow-sm: 0 1px 3px rgba(13, 107, 102, 0.05), 0 1px 2px rgba(13, 107, 102, 0.03);
+  --shadow-md: 0 4px 12px rgba(13, 107, 102, 0.08), 0 2px 4px rgba(13, 107, 102, 0.04);
+  --shadow-lg: 0 10px 30px rgba(13, 107, 102, 0.1), 0 4px 8px rgba(13, 107, 102, 0.05);
+  --shadow-xl: 0 20px 50px rgba(13, 107, 102, 0.12), 0 8px 16px rgba(13, 107, 102, 0.07);
+  --shadow-glow: 0 0 20px rgba(13, 107, 102, 0.15);
+  --shadow-button: 0 4px 14px rgba(13, 107, 102, 0.25);
 
   /* Certificate */
-  --cert-border: #BD5A4E;
-  --cert-accent: #8F2318;
-  --cert-bg: linear-gradient(135deg, #FAF6F4 0%, #FAF4F3 100%);
-  --cert-watermark: rgba(143, 35, 24, 0.03);
+  --cert-border: #2AB8B0;
+  --cert-accent: #0D6B66;
+  --cert-bg: linear-gradient(135deg, #F0FFFE 0%, #E0F7F6 100%);
+  --cert-watermark: rgba(13, 107, 102, 0.04);
 
   /* Navbar */
   --nav-bg: rgba(255, 255, 255, 0.88);
-  --nav-active: #8F2318;
-  --nav-inactive: #A6827E;
+  --nav-active: #0D6B66;
+  --nav-inactive: #6B9E9A;
 }
 
 /* ===== THEME: BLUE (BOY) ===== */
@@ -416,7 +416,7 @@ ul, ol { list-style: none; }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(143, 35, 24, 0.35);
+  box-shadow: 0 8px 24px rgba(13, 107, 102, 0.35);
 }
 
 .btn-primary:active {
@@ -576,7 +576,7 @@ ul, ol { list-style: none; }
 
 @keyframes premiumGlow {
   0%, 100% { box-shadow: var(--shadow-lg); }
-  50% { box-shadow: 0 12px 40px rgba(143, 35, 24, 0.15); }
+  50% { box-shadow: 0 12px 40px rgba(13, 107, 102, 0.15); }
 }
 
 @keyframes slideUp {
