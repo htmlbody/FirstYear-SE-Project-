@@ -245,7 +245,7 @@ export default function RegisterPage() {
             </div>
             <div className="premium-loader-text">
               <h2 className="loader-title">Account Created!</h2>
-              <p className="loader-subtitle">Setting up your child's profile...</p>
+              <p className="loader-subtitle">Setting up your child&apos;s profile...</p>
             </div>
           </div>
         </div>

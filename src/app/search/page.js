@@ -111,10 +111,10 @@ export default function SearchPage() {
             <button className={`m-chip ${activeCategory === '9months' ? 'active' : ''}`} onClick={() => setActiveCategory('9months')}>
               9 Mts
             </button>
-            <button className={`m-chip ${activeCategory === '16-24months' ? 'active' : ''}`} onClick={() => setActiveCategory('16-24months')}>
+            <button className={`m-chip ${activeCategory === '16months' ? 'active' : ''}`} onClick={() => setActiveCategory('16months')}>
               16-24 Mts
             </button>
-            <button className={`m-chip ${activeCategory === '5-6years' ? 'active' : ''}`} onClick={() => setActiveCategory('5-6years')}>
+            <button className={`m-chip ${activeCategory === '5years' ? 'active' : ''}`} onClick={() => setActiveCategory('5years')}>
               5-6 Yrs
             </button>
           </div>
